@@ -15,7 +15,7 @@ fetch('https://restcountries.com/v3.1/all')
             return {
                 name: item.name.common,
                 codes: [item?.cca2, item?.cca3],
-                flag: item.flag,
+                flag: item.flags.png,
             };
         })
 
@@ -23,57 +23,66 @@ fetch('https://restcountries.com/v3.1/all')
             let chosenCountry = randomCountry(countries);
             let flag = document.getElementById('flag')
             let options = document.getElementsByClassName('options')
-    
-            flag.innerText = chosenCountry.flag
+
+            flag.src = chosenCountry.flag
 
             let backButton = document.getElementById('back')
             backButton.addEventListener('click', (event) => {
-                window.location.href = '../menu/index.html' 
+                window.location.href = '../menu/index.html'
                 return
-            }, { once : true })
-    
+            }, {
+                once: true
+            })
+
             let used = []
-    
+
             let correctOption = randomOption(options)
             correctOption.innerText = chosenCountry.name
             console.log(correctOption.innerText)
 
             options = Array.from(options).filter((item) => item !== correctOption)
-    
+            used.push(chosenCountry)
+
             options.forEach((option) => {
-                option.innerText = randomCountry(countries, used).name
+                let temp = randomCountry(countries, used).name
+                option.innerText = temp
+                used.push(temp)
             })
-    
+
             let selectedOption;
             options = document.getElementsByClassName('options')
             Array.from(options).forEach((option) => {
                 option.addEventListener('click', (event) => {
                     if (selectedOption) return;
                     selectedOption = option
-    
+
                     if (selectedOption.innerText === correctOption.innerText) {
                         selectedOption.style['background-color'] = '#009a30'
                         score = document.getElementById('score')
-                        score.innerText ++
+                        score.innerText++
                     } else {
                         selectedOption.style['background-color'] = '#df1111'
                         correctOption.style['background-color'] = '#009a30'
                     }
-    
+
                     let nextButton = document.getElementById('next')
                     nextButton.addEventListener('click', (event) => {
                         if (parseInt(page.innerText) === parseInt(pages)) {
-                        window.location.href = '../end/index.html' 
-                        return
+                            sessionStorage.setItem('score', score.innerText);
+                            sessionStorage.setItem('total_score', pages);
+                            window.location.href = '../end/index.html'
+                            return
                         }
                         page = document.getElementById('page')
-                        page.innerText ++
+                        page.innerText++
 
                         Array.from(options).forEach((option) => {
                             option.style['background-color'] = '#ffffff'
                         })
                         main(countries)
-                    }, { once : true })
+                    }, {
+                        once: true
+                    })
                 })
             })
         }

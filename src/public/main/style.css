@@ -28,8 +28,12 @@ html {
 }
 
 .flag {
-    font-size: 450px;
-    margin-bottom: -15%;
+    width: 90%;
+    min-width: 90%;
+    height: 30%;
+    max-height: 30%;
+    margin-top: 15%;
+    margin-bottom: 5%;
 }
 
 .options {
