@@ -9,62 +9,64 @@
 
 <body>
     <div class='container'>
-        <button id='back' class='back'>◀</button>
-        <div class='sound_container'>
-            <h2>SOUND</h2>
-            <input type='checkbox'>
-            <div class='slider round'></div>
-        </div>
-        <div class='flag_num_container'>
-            <form>
-                <h2>NUMBER OF FLAGS</h2>
-                <input type='radio' id='10' name='flag_num' value=10>
-                <label for='10'>10</label>
-                <br>
-                <input type='radio' id='25' name='flag_num' value=25>
-                <label for='25'>25</label>
-                <br>
-                <input type='radio' id='50' name='flag_num' value=50>
-                <label for='50'>50</label>
-                <br>
-                <input type='radio' id='100' name='flag_num' value=100>
-                <label for='100'>100</label>
-                <br>
-                <input type='radio' id='197' name='flag_num' value=197>
-                <label for='197'>197</label>
-            </form>
-        </div>
-        <div class='flags_container'>
-            <h2>FLAGS</h2>
-            <div class='africa_container'>
-                <label for 'africa'>AFRICA</label>
-                <input type='checkbox'>
+        <img id='back' class='back' src='../../images/back.png'>
+        <div class='bottom_container'>
+            <div class='sound_container'>
+                <h2>SOUND</h2>
+                <input id='sound' type='checkbox'>
                 <div class='slider round'></div>
             </div>
-            <div class='asia_container'>
-                <label for 'africa'>ASIA</label>
-                <input type='checkbox'>
-                <div class='slider round'></div>
+            <div class='flag_num_container'>
+                <for id='flag_options'>
+                    <h2>NUMBER OF FLAGS</h2>
+                    <input type='radio' id='10' name='flag_num' value=10>
+                    <label for='10'>10</label>
+                    <br>
+                    <input type='radio' id='25' name='flag_num' value=25>
+                    <label for='25'>25</label>
+                    <br>
+                    <input type='radio' id='50' name='flag_num' value=50>
+                    <label for='50'>50</label>
+                    <br>
+                    <input type='radio' id='100' name='flag_num' value=100>
+                    <label for='100'>100</label>
+                    <br>
+                    <input type='radio' id='197' name='flag_num' value=197>
+                    <label for='197'>197</label>
+                </form>
             </div>
-            <div class='europe_container'>
-                <label for 'africa'>EUROPE</label>
-                <input type='checkbox'>
-                <div class='slider round'></div>
-            </div>
-            <div class='north_america_container'>
-                <label for 'africa'>NORTH AMERICA</label>
-                <input type='checkbox'>
-                <div class='slider round'></div>
-            </div>
-            <div class='south_america_container'>
-                <label for 'africa'>SOUTH AMERICA</label>
-                <input type='checkbox'>
-                <div class='slider round'></div>
-            </div>
-            <div class='oceania_container'>
-                <label for 'africa'>OCEANIA</label>
-                <input type='checkbox'>
-                <div class='slider round'></div>
+            <div class='flags_container'>
+                <h2>FLAGS</h2>
+                <div class='africa_container'>
+                    <label for='africa'>AFRICA</label>
+                    <input id='africa' type='checkbox'>
+                    <div class='slider round'></div>
+                </div>
+                <div class='asia_container'>
+                    <label for='asia'>ASIA</label>
+                    <input id='asia' type='checkbox'>
+                    <div class='slider round'></div>
+                </div>
+                <div class='europe_container'>
+                    <label for='europe'>EUROPE</label>
+                    <input id='europe' type='checkbox'>
+                    <div class='slider round'></div>
+                </div>
+                <div class='north_america_container'>
+                    <label for='north_america'>NORTH AMERICA</label>
+                    <input id='north_america' type='checkbox'>
+                    <div class='slider round'></div>
+                </div>
+                <div class='south_america_container'>
+                    <label for='south_america'>SOUTH AMERICA</label>
+                    <input id='south_america' type='checkbox'>
+                    <div class='slider round'></div>
+                </div>
+                <div class='oceania_container'>
+                    <label for='oceania'>OCEANIA</label>
+                    <input id='oceania' type='checkbox'>
+                    <div class='slider round'></div>
+                </div>
             </div>
         </div>
     </div>

@@ -3,8 +3,8 @@ let total_score = document.getElementById('total_score')
 
 score = sessionStorage.getItem('score') ? sessionStorage.getItem('score') : 0;
 total_score = sessionStorage.getItem('total_score') ? sessionStorage.getItem('total_score') : 0;
-sessionStorage.removeItem('score')
-sessionStorage.removeItem('total_score')
+// sessionStorage.removeItem('score')
+// sessionStorage.removeItem('total_score')
 
 document.body.innerHTML = document.body.innerHTML.replace('$score', score);
 document.body.innerHTML = document.body.innerHTML.replace('$total_score', total_score);

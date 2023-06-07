@@ -14,17 +14,17 @@ fetch('https://restcountries.com/v3.1/all')
         countries = data.map((item) => {
             return {
                 name: item.name.common,
-                flag: item.flag
+                flag: item.flags.png
             };
         }).sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
 
         countries.forEach((country) => {
             let countriesContainer = document.getElementById('countries_container')
             let countryContainer = document.createElement('div')
-            let flag = document.createElement('p')
+            let flag = document.createElement('img')
             let countryName = document.createElement('p')
 
-            flag.innerText = country.flag
+            flag.src = country.flag
             countryName.innerText = country.name
 
             countriesContainer.appendChild(countryContainer)
