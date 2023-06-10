@@ -1,7 +1,8 @@
 let countries;
 let score = document.getElementById('score')
 let page = document.getElementById('page')
-let pages = sessionStorage.getItem('total_flags') ? sessionStorage.getItem('total_flags') : 25;
+console.log(sessionStorage.getItem('flags_number'))
+let pages = sessionStorage.getItem('flags_number') ? sessionStorage.getItem('flags_number') : 25;
 
 score.innerText = 0;
 page.innerText = 1;
