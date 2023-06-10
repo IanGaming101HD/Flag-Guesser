@@ -1,8 +1,10 @@
 let countries;
 let score = document.getElementById('score')
 let page = document.getElementById('page')
-console.log(sessionStorage.getItem('flags_number'))
 let pages = sessionStorage.getItem('flags_number') ? sessionStorage.getItem('flags_number') : 25;
+
+let correctSoundEffect = document.getElementById('correct_sound_effect')
+let incorrectSoundEffect = document.getElementById('incorrect_sound_effect')
 
 score.innerText = 0;
 page.innerText = 1;
@@ -17,6 +19,7 @@ fetch('https://restcountries.com/v3.1/all')
                 name: item.name.common,
                 codes: [item?.cca2, item?.cca3],
                 flag: item.flags.png,
+                continent: item.continents[0]
             };
         })
 
@@ -58,10 +61,16 @@ fetch('https://restcountries.com/v3.1/all')
                     selectedOption = option
 
                     if (selectedOption.innerText === correctOption.innerText) {
+                        if (JSON.parse(sessionStorage.getItem('sound'))) {
+                            correctSoundEffect.play()
+                        }
                         selectedOption.style['background-color'] = '#009a30'
                         score = document.getElementById('score')
                         score.innerText++
                     } else {
+                        if (JSON.parse(sessionStorage.getItem('sound'))) {
+                            incorrectSoundEffect.play()
+                        }
                         selectedOption.style['background-color'] = '#df1111'
                         correctOption.style['background-color'] = '#009a30'
                     }
@@ -90,9 +99,7 @@ fetch('https://restcountries.com/v3.1/all')
 
         main(countries)
 
-    }).catch((error) => {
-        console.log('Error: An error occurred while making the request.', error)
-    })
+    }).catch((error) => {})
 
 function randomCountry(countries, country) {
     let randomCountry = country
